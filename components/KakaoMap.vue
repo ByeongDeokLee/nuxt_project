@@ -64,13 +64,6 @@ const address = ref("서울특별시 중구 세종대로 110");
 const startName = ref("");
 const endName = ref("");
 
-type ClickedLocationData = {
-  lat: number;
-  lng: number;
-  roadAddress: string;
-  jibunAddress: string;
-};
-
 // //맵클릭
 // function mapClickFun(data: ClickedLocationData) {
 //   console.log("지도 클릭 정보:", data);
@@ -109,6 +102,13 @@ const roadViewFun = () => {
 const directionsFun = () => {
   directionsYn.value = true;
   searchAddYn.value = false;
+
+  console.log("\n\n\n 확인1 \n\n\n", startName.value);
+  console.log("\n\n\n 확인2 \n\n\n", endName.value);
+  window.open(
+    `https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.10821`,
+    "newVindown"
+  );
 };
 
 //검색
@@ -140,7 +140,6 @@ onMounted(() => {
       map.value,
       "click",
       (mouseEvent: any) => {
-        console.log("\n\n 확인 \n\n", !infowindow.value);
         if (infowindow.value) {
           infowindow.value.close();
         }
